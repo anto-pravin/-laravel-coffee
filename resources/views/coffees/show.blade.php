@@ -1,4 +1,4 @@
-@extends('layouts.layout')
+@extends('layouts.app')
 
 @section('content')
     <div class="" style='background-color:whitesmoke;'>
@@ -14,8 +14,7 @@
                 <p class="card-text"><strong>Address -</strong> {{ $coffee->address }} </p>
                 <form class="" action="/coffee/ {{ $coffee->id }}" method="post">
                     @csrf
-                    @method('DELETE')
-                    <button class='btn btn-danger'>Check Out</button>
+                    <button class='btn btn-danger' value='{{ $coffee }}'>Delivered</button>
                 </form>
                 <br>
                 <a class="ml-0" href="/coffee"><strong><- Back to all Orders</strong></a>

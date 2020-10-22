@@ -7,19 +7,18 @@
     </div>
     
     <div class="wrapper order-coffee">
-        <h1 class="text-center">Make your day Awesome!!</h1>
-        <legend class="text-center pb-5">Place your Order Here</legend>
-        <form class="needs-validation" method="post" action="{{ route('coffee') }}">
+        <legend class="text-center py-3">Make Changes Here</legend>
+        <form class="needs-validation" method="post" action="{{ route('updateData',$coffee->id) }}">
             @csrf
             <div class="form-row">
                 <div class="col-md-6 mb-3">
                 <label for="validationTooltip01">Name</label>
-                <input type="text" class="form-control" id="validationTooltip01" name='name' value="" placeholder="Name" required>
+                <input type="text" class="form-control" id="validationTooltip01" name='name' value=" {{ $coffee->name }} " placeholder="Name" required>
                 </div>
                 <div class="col-md-6 mb-3">
                 <label for="validationTooltip04">Choose the Branch</label>
                 <select class="custom-select" id="validationTooltip04" name='branch' required>
-                    <option selected disabled value="">Choose...</option>
+                    <option value='{{ $coffee->branch }}'>{{ $coffee->branch }}</option>
                     <option value='Coimbatore North'>Coimbatore North</option>
                     <option value='Coimbatore East'>Coimbatore East</option>
                     <option value='Race Coarse'>Race Coarse</option>
@@ -31,7 +30,7 @@
                 <div class="col-md-6 mb-3">
                 <label for="validationTooltip04">Type of Coffee</label>
                 <select class="custom-select" name='type' id="validationTooltip04" required>
-                    <option selected disabled value="">Choose...</option>
+                    <option value='{{ $coffee->type }}'>{{ $coffee->type }}</option>
                     <option value='AFFOGATO'>AFFOGATO</option>
                     <option value='EXPRESSO'>EXPRESSO</option>
                     <option value='CAFFÈ LATTE'>CAFFÈ LATTE</option>
@@ -48,7 +47,7 @@
                 <div class="col-md-3 mb-3">
                     <label for="validationTooltip04">Sugar</label>
                     <select class="custom-select" name='sugar' id="validationTooltip04" required>
-                        <option selected disabled value="">Choose...</option>
+                        <option value='{{ $coffee->sugar }}'>{{ $coffee->sugar }}</option>
                         <option value='White'>White</option>
                         <option value='Brown'>Brown</option>
                         <option value='Sugar-Free'>Sugar-Free</option>
@@ -56,8 +55,8 @@
                 </div>
                 <div class="col-md-3 mb-3">
                 <label for="customRange2">Sugar Quantity - (Cubes)</label>
-                <input id="customRange2"  type="range" name="rangeInput" min="1" max="4" step='1' value='1' onchange="updateTextInput(this.value);">
-                <input type="text" class="text-center mt-0" id="textInput" name='sugarquantity' style='border:0' value="1 cube">
+                <input id="customRange2"  type="range" name="rangeInput" min="1" max="4" step='1' value='{{ $coffee->sugarquantity }}' onchange="updateTextInput(this.value);">
+                <input type="text" class="text-center mt-0" id="textInput" name='sugarquantity' style='border:0' value=" {{ $coffee->sugarquantity }} ">
                 </div>
             </div>
 
@@ -65,7 +64,7 @@
                 <div class="col-md-6 mb-3">
                     <label for="validationTooltip04">Add-on</label>
                     <select class="custom-select" name='addons' id="validationTooltip04" required>
-                        <option selected disabled value="">Choose...</option>
+                        <option value='{{ $coffee->addons }}'>{{ $coffee->addons }}</option>
                         <option value='Whipped Cream'>Whipped Cream</option>
                         <option value='Ice Cream'>Ice Cream</option>
                         <option value='Chocolate Syrup'>Chocolate Syrup</option>
@@ -75,7 +74,7 @@
                 <div class="col-md-3 mb-3">
                     <label for="validationTooltip04">Others</label>
                     <select class="custom-select" name='other' id="validationTooltip04" required>
-                        <option selected disabled value="">Choose...</option>
+                        <option value='{{ $coffee->other }}'>{{ $coffee->other }}</option>
                         <option value='Hot'>Hot</option>
                         <option value='Cold'>Cold</option>
                         <option value='Extra Strong'>Extra Strong</option>
@@ -84,7 +83,7 @@
                 </div>
                 <div class="col-md-3 mb-3">
                 <label for="validationTooltip01">Quantity</label>
-                <input type="text" class="form-control" name='quantity' id="validationTooltip01" value="" required placeholder="Quantity">
+                <input type="text" class="form-control" value=" {{ $coffee->quantity }} " name='quantity' id="validationTooltip01" required placeholder="Quantity">
                 </div>
                 
             </div>
@@ -92,11 +91,11 @@
             <div class="form-row">
                 <div class="col-md mb-3">
                 <label for="validationTooltip01">Full Address</label>
-                <input type="text" class="form-control" name='address' id="validationTooltip01" value="" required placeholder="Address">
+                <input type="text" class="form-control" value=" {{ $coffee->address }} " name='address' id="validationTooltip01" required placeholder="Address">
                 </div>
             </div>
             <div class="text-center">
-                <button class="btn" style="background-color:#C30327; color: white" type="submit">Place Order</button>
+                <button class="btn" style="background-color:#C30327; color: white" type="submit">Update Order</button>
             </div>
             
         </form>
