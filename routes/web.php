@@ -37,15 +37,16 @@ Route::group(['namespace' => 'App\Http\Controllers\\'], function () {
 
     Route::post('/coffee/{id}', 'CoffeeController@destroy')->name('coffees.destroy')->middleware('auth');
 
-    Route::get('/search/search', 'SearchController@index')->name('updateSearch')->middleware('auth');
-
-    Route::get('/live_search/action', 'SearchController@action')->name('search')->middleware('auth');
-
     Route::get('/confirmations/deleted/{id}','CoffeeController@delete')->name('confirmDelete')->middleware('auth');
     
     Route::delete('/coffee/delete','CoffeeController@delete')->name('delete')->middleware('auth');
 
     Route::get('/home','CoffeeController@home')->name('home')->middleware('auth');
+
+    // Live Search
+    Route::get('/search/search', 'SearchController@index')->name('updateSearch')->middleware('auth');
+
+    Route::get('/live_search/action', 'SearchController@action')->name('search')->middleware('auth');
 });
 
 Auth::routes();
