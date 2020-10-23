@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCoffeeTable extends Migration
+class CreateCoffeesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -17,6 +17,7 @@ class CreateCoffeeTable extends Migration
             $table->id();
             $table->timestamps();
             $table->string('name');
+            $table->string('branch');
             $table->string('type');
             $table->string('sugar');
             $table->string('sugarquantity');
@@ -34,6 +35,6 @@ class CreateCoffeeTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('coffee');
+        Schema::dropIfExists('coffees');
     }
 }

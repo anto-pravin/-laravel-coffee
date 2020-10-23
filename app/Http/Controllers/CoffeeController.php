@@ -42,8 +42,17 @@ class CoffeeController extends Controller
 
 
         $coffee = new Coffee;
-
+        error_log(request('name'));
+        error_log(request('branch'));
+        error_log(request('type'));
+        error_log(request('sugar'));
+        error_log(request('sugarquantity'));
+        error_log(request('addons'));
+        error_log(request('other'));
+        error_log(request('quantity'));
+        error_log(request('address'));
         $coffee->name = request('name');
+        $coffee->branch = request('branch');
         $coffee->type = request('type');
         $coffee->sugar = request('sugar');
         $coffee->sugarquantity = request('sugarquantity');
@@ -67,6 +76,7 @@ class CoffeeController extends Controller
         $delivery = new Delivery;
         $coffee = Coffee::findorfail($id);
         $delivery->name = $coffee->name;
+        $delivery->branch = $coffee->branch;
         $delivery->type = $coffee->type;
         $delivery->sugar = $coffee->sugar;
         $delivery->sugarquantity = $coffee->sugarquantity;
@@ -95,6 +105,7 @@ class CoffeeController extends Controller
         $coffee = Coffee::find($id);
         if($coffee){
             $coffee->name = request('name');
+            $coffee->branch = request('branch');
             $coffee->type = request('type');
             $coffee->sugar = request('sugar');
             $coffee->sugarquantity = request('sugarquantity');
