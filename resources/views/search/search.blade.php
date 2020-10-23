@@ -1,6 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
+<div class="container text-end mt-3">
+  <a class="" href="{{ route('home') }}"><strong><- Back to Dashboard</strong></a>
+</div>
   <div class="container box mt-3" style="border: 1px solid grey">
    <h2 class="text-center pt-2">Coffee Orders</h2>
    <div class="panel panel-default">
@@ -9,7 +12,7 @@
       <input type="text" name="search" id="search" class="form-control" placeholder="Search Orders" />
      </div>
      <div class="table-responsive">
-      <h3 class='text-center'>Total Data : <span id="total_records"></span></h3>
+      <h3 class='text-center'>Total Records : <span id="total_records"></span></h3>
       <table class="table table-striped table-bordered">
        <thead>
         <tr>
@@ -24,6 +27,7 @@
         <th scope="col">Address</th>
         <th scope="col">Quantity</th>
         <th scope='col'>Update</th>
+        <th scope='col'>Delete</th>
 
         </tr>
        </thead>
@@ -36,7 +40,7 @@
     </div>    
    </div>
   </div>
-        <br><br><br>
+  <br><br><br>
 
 <script>
 $(document).ready(function(){

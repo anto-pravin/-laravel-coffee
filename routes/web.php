@@ -29,6 +29,8 @@ Route::group(['namespace' => 'App\Http\Controllers\\'], function () {
 
     Route::get('/coffee/create', 'CoffeeController@create')->name('coffees.create');
 
+    Route::get('/coffee/delivered/{id}','CoffeeController@viewDel')->name('viewDel')->middleware('auth');
+
     Route::get('/coffee/{id}', 'CoffeeController@show')->name('coffees.show')->middleware('auth');
 
     Route::get('/coffee/update/{id}','CoffeeController@updateForm')->name('coffees.updateForm')->middleware('auth');
@@ -38,6 +40,12 @@ Route::group(['namespace' => 'App\Http\Controllers\\'], function () {
     Route::get('/search/search', 'SearchController@index')->name('updateSearch')->middleware('auth');
 
     Route::get('/live_search/action', 'SearchController@action')->name('search')->middleware('auth');
+
+    Route::get('/confirmations/deleted/{id}','CoffeeController@delete')->name('confirmDelete')->middleware('auth');
+    
+    Route::delete('/coffee/delete','CoffeeController@delete')->name('delete')->middleware('auth');
+
+    Route::get('/home','CoffeeController@home')->name('home')->middleware('auth');
 });
 
 Auth::routes();

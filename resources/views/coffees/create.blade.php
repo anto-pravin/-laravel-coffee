@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="" style="background-color: whitesmoke;">
-    <div class="text-center mt-5">
+    <div class="text-center mt-3">
         <img src="/img/ccd-logo.png" alt="Logo" class="img text-center" height="75px">
     </div>
     
@@ -98,7 +98,7 @@
             <div class="text-center">
                 <button class="btn" style="background-color:#C30327; color: white" type="submit">Place Order</button>
             </div>
-            
+            <br><br>
         </form>
     </div>
     </div>

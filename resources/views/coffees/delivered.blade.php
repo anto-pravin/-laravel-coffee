@@ -9,12 +9,15 @@
                 <li class="media col-md-4 col-sm-6 my-3">
                     <img src="/img/{{$coffee->type}}.png" class="img mr-3" height="50px" alt="...">
                     <div class="media-body">
-                        <a href="/coffee/{{ $coffee->id }}"><h4 class="mt-0 mb-1"><strong> {{ $coffee->name }} </strong></h4></a>
+                        <a href="{{ route('viewDel',$coffee->id) }}"><h4 class="mt-0 mb-1"><strong> {{ $coffee->name }} </strong></h4></a>
                         {{ $coffee->type }}
                     </div>
                 </li>
             @endforeach
             <br style="margin-bottom:150px">
+            <div class="container text-center">
+                <a class="" href="{{ route('home') }}"><strong><- Back to Dashboard</strong></a>
+            </div>
         </div>
     </div>
 

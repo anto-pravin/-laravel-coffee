@@ -28,6 +28,16 @@ class CoffeeController extends Controller
         return view('coffees.create');
     }
 
+    public function home(){
+        return view('home');
+    }
+
+    public function viewDel($id){
+
+        $coffee = Delivery::findorfail($id);
+        return view('coffees.showDelivered',['coffee'=>$coffee]);
+    }
+
     public function store(){
 
 
@@ -44,7 +54,7 @@ class CoffeeController extends Controller
         
         $coffee->save();
 
-        return redirect('/');
+        return view('confirmations.ordered');
     }
 
     public function update(){
@@ -69,7 +79,7 @@ class CoffeeController extends Controller
 
         $coffee->delete();
 
-        return redirect('/');
+        return view('confirmations.delivered');
     }
 
     public function updateForm($id){
@@ -96,6 +106,12 @@ class CoffeeController extends Controller
             $coffee->save();
         }
 
-        return redirect('/');
+        return view('confirmations.updated');
+    }
+
+    public function delete($id){
+        $coffee = Coffee::findorfail($id);
+        $coffee->delete();
+        return view('confirmations.deleted');
     }
 }

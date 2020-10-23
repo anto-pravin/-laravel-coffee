@@ -15,6 +15,9 @@
                 </li>
             @endforeach
             <br style="margin-bottom:150px">
+            <div class="container text-center">
+                <a class="" href="{{ route('home') }}"><strong><- Back to Dashboard</strong></a>
+            </div>
         </div>
     </div>
        

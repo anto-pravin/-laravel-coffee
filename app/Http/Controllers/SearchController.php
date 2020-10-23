@@ -60,7 +60,12 @@ class SearchController extends Controller
             <td>'.$row->address.'</td>
             <td>
                 <a href="/coffee/update/'.$row->id.'" class="p-1" style="text-decoration:none; border-radius:4px; color:white;border:0;background-color:#C30327">
-                    update
+                    Update
+                </a>
+            </td>
+            <td>
+                <a href="/confirmations/deleted/'.$row->id.'" class="p-1" style="text-decoration:none; border-radius:4px; color:white;border:0;background-color:#C30327">
+                    Delete
                 </a>
             </td>
         </tr>

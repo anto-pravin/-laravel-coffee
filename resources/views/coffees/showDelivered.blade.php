@@ -12,13 +12,10 @@
                 <p class="card-text pl-2"><strong>Others -</strong> {{ $coffee->other }} </p>
                 <p class="card-text pl-2"><strong>Quantity -</strong> {{ $coffee->quantity }} </p>
                 <p class="card-text pl-2"><strong>Address -</strong> {{ $coffee->address }} </p>
-                <form class="text-center" action="{{ route('coffees.destroy', $coffee->id) }}" method="post">
-                    @csrf
-                    <button class='btn btn-danger' value='{{ $coffee }}'>Delivered</button>
-                    <br class='my-3'>
-                    <a class="text-center" href="/coffee"><strong><- Back to all Orders</strong></a>
-                </form>
+                <br>
+                <a class="ml-0 text-center" href="{{ route('coffees.delivered') }}"><strong><- Back to Delivered List</strong></a>
             </div>
+            
         </div>
         
     </div>
