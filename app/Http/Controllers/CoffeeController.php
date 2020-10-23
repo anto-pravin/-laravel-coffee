@@ -42,15 +42,6 @@ class CoffeeController extends Controller
 
 
         $coffee = new Coffee;
-        error_log(request('name'));
-        error_log(request('branch'));
-        error_log(request('type'));
-        error_log(request('sugar'));
-        error_log(request('sugarquantity'));
-        error_log(request('addons'));
-        error_log(request('other'));
-        error_log(request('quantity'));
-        error_log(request('address'));
         $coffee->name = request('name');
         $coffee->branch = request('branch');
         $coffee->type = request('type');
