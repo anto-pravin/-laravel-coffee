@@ -18,7 +18,7 @@
                     <br><br>
 
                     <p><a href="{{ route('coffees.index') }}">View all Orders</a></p>
-                    <p><a href="{{ route('coffees.update') }}">Update Orders</a></p>
+                    <p><a href="{{ route('updateSearch') }}">Update Orders</a></p>
                     <p><a href="{{ route('coffees.delivered') }}">Delivered Orders</a></p>
                 </div>
             </div>
