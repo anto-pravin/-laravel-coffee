@@ -5,17 +5,18 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Coffee;
 use App\Models\Delivery;
+use App\Models\Customer;
 
 class CoffeeController extends Controller
 {
+    public function welcome(){
+        return view('welcome');
+    }
+
+    //Coffee List
     public function index(){
         $coffees = Coffee::all();
         return view('coffees.index',['coffees'=>$coffees]);
-    }
-
-    public function delivered(){
-        $deliveries = Delivery::all();
-        return view('coffees.delivered',['coffees'=>$deliveries]);
     }
 
     public function show($id){
@@ -30,6 +31,14 @@ class CoffeeController extends Controller
 
     public function home(){
         return view('home');
+    }
+
+
+    //Deivered
+    public function delivered()
+    {
+        $deliveries = Delivery::all();
+        return view('coffees.delivered', ['coffees' => $deliveries]);
     }
 
     public function viewDel($id){
@@ -62,6 +71,7 @@ class CoffeeController extends Controller
         return view('coffees.update',['coffees'=>$coffees]);
     }
 
+
     public function destroy($id){
 
         $delivery = new Delivery;
@@ -91,6 +101,8 @@ class CoffeeController extends Controller
 
     }
 
+    // Update Delete
+
     public function updateData($id){
 
         $coffee = Coffee::find($id);
@@ -116,4 +128,31 @@ class CoffeeController extends Controller
         $coffee->delete();
         return view('confirmations.deleted');
     }
+
+
+    //Customers Data
+
+
+    public function users()
+    {
+        $users = Customer::all();
+        return view('users.users', ['users' => $users]);
+    }
+
+    public function uploadForm(){
+        return view('users.uploadForm');
+    }
+
+    public function customerData(Request $request){
+        $customer = new Customer;
+        $customer->name = $request->name;
+        $customer->email = $request->email;
+        $customer->password = $request->up2;
+        $customer->address = $request->address;
+        $customer->avatar = $request->image->getClientOriginalName();
+
+        $customer->save();
+        return redirect('/');
+    }
+
 }

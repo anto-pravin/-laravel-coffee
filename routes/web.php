@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
+use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,11 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
 
 Route::group(['namespace' => 'App\Http\Controllers\\'], function () {
+    Route::get('/','CoffeeController@welcome')->name('welcome');
 
     Route::get('/coffee','CoffeeController@index')->name('coffees.index')->middleware('auth');
 
@@ -42,6 +42,13 @@ Route::group(['namespace' => 'App\Http\Controllers\\'], function () {
     Route::delete('/coffee/delete','CoffeeController@delete')->name('delete')->middleware('auth');
 
     Route::get('/home','CoffeeController@home')->name('home')->middleware('auth');
+
+    //customer Table
+    Route::get('/upload', 'CoffeeController@uploadForm')->name('uploadForm');
+
+    Route::get('/users','CoffeeController@users')->name('users');
+
+    Route::post('/users/customer','CoffeeController@customerData')->name('customerData');
 
     // Live Search
     Route::get('/search/search', 'SearchController@index')->name('updateSearch')->middleware('auth');

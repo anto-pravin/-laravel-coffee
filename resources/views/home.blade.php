@@ -9,9 +9,9 @@
 
                 <div class="card-body">
                     @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
+                    <div class="alert alert-success" role="alert">
+                        {{ session('status') }}
+                    </div>
                     @endif
 
                     {{ __('You are logged in!') }}
@@ -20,8 +20,13 @@
                     <p><a href="{{ route('coffees.index') }}">View all Orders</a></p>
                     <p><a href="{{ route('updateSearch') }}">Update Orders</a></p>
                     <p><a href="{{ route('coffees.delivered') }}">Delivered Orders</a></p>
-                </div>
-            </div>
+                    <p><a href="{{ route('users') }}">All Users</a></p>
+                    <p><a href="/" class="text-center" style="color:gray; text-decoration:none">
+                    <strong>
+                        <-Back to Home
+                    </strong>
+                </a>
+            </p>
         </div>
     </div>
 </div>
