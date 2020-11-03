@@ -4,6 +4,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ApiController;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\Api\LoginController;
+use App\Http\Controllers\Api\UserController;
 
 
 /*
@@ -34,3 +36,6 @@ Route::delete('delete/{id}',[ApiController::class, 'deleteData']);
 Route::post('save',[ApiController::class,'testData']);
 
 //Route::post('/coffee', [ApiController::class,'store']);
+
+Route::post('/login',[LoginController::class , 'login']);
+Route::middleware('auth:api')->get('/all',[Usercontroller::class, 'index']);
